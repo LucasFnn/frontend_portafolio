@@ -1,0 +1,140 @@
+<!--Barra de navegacion
+<header class="container-fluid">
+  <nav class="container-fluid navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid navbar bg-primary" data-bs-theme="dark">
+
+        <a class="navbar-brand col-md-6 px-3" *ngIf="this.deslogueado == true" [routerLink]="['/home']">Portafolio</a>
+        <a class="navbar-brand col-md-6 px-3" *ngIf="this.deslogueado == false" [routerLink]="['/admin']">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-md-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item px-3"  *ngIf="this.deslogueado == true">
+              <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Inicio</a>
+            </li>
+            <li class="nav-item px-3"  *ngIf="this.deslogueado == true">
+              <a class="nav-link active" [routerLink]="['/proyectos']">Proyectos</a>
+            </li>
+            <li class="nav-item px-3"  *ngIf="this.deslogueado == true">
+              <a class="nav-link active" [routerLink]="['/sobremi']">Sobre mi</a>
+            </li> 
+            <li class="nav-item dropdown px-3"   *ngIf="this.deslogueado == true">
+              <a class="nav-link active dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Contacto
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" [routerLink]="['/contacto']">Enviar mensaje</a></li>
+                <li><a class="dropdown-item" href="#">Descargar CV</a></li>
+                <li><a class="dropdown-item" href="#">GitHub</a></li>
+              </ul>
+            </li>
+            <li class="nav-item px-3" *ngIf="this.deslogueado == true" >
+              <a class="nav-link active"  [routerLink]="['/login']">Login</a>
+            </li> 
+            <li class="nav-item px-3" *ngIf="this.deslogueado == false">
+              <a class="nav-link active" [routerLink]="['/home']" (click)="desloguear()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+</header>
+
+Barra de navegacion-->  
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary barra pt-3 px-3 p">
+  <a  *ngIf="this.deslogueado == true"  class="navbar-brand"  href="#home">
+    
+    <img class="icono_arg"
+      src="../assets/img/arg-prog.png" alt="">
+    <p class="pt-1 yoprogramo">#YoProgramo</p>
+  </a>
+
+  <a  *ngIf="this.deslogueado == false"  class="navbar-brand"  [routerLink]="['/admin']">
+    
+    <img class="icono_arg"
+      src="../assets/img/arg-prog.png" alt="">
+    <p class="pt-1 yoprogramo">#YoProgramo</p>
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+    <ul class="navbar-nav barra_nav"> 
+
+
+  <li  class="nav-item redes"  *ngIf="this.deslogueado == true">
+    <ul class="navbar-nav sm-icons row  iconos">
+      <li class="col-3"><a class="nav-link icono" href="#"><i class="bi bi-facebook"></i></a></li>
+      <li class="col-3"><a class="nav-link" href="#"><i class="bi bi-instagram"></i></a></li>
+      <li class="col-3"><a class="nav-link" href="#"><i class="bi bi-twitter"></i></a></li>
+      <li class="col-3"><a class="nav-link" href="#"><i class="bi bi-github"></i></a></li>
+    </ul>
+  </li>
+
+
+          <li class="nav-item"  *ngIf="this.deslogueado == true">
+            <a class="nav-link active pt-3 text-white" aria-current="page" href="#home">INICIO</a>
+          </li>
+          <li class="nav-item"  *ngIf="this.deslogueado == true">
+            <a class="nav-link active pt-3 text-white" href="#sobremi">SOBRE MI</a>
+          </li>
+          <li class="nav-item"  *ngIf="this.deslogueado == true">
+            <a class="nav-link active pt-3 text-white"  href="#proyectos">PROYECTOS</a>
+          </li>
+          <li class="nav-item dropdown pt-3" style="line-height: 20px;" *ngIf="this.deslogueado == true">
+            <a class="nav-link active dropdown-toggle text-white" id="navbarDarkDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              CONTACTO
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="#contacto">Enviar mensaje</a></li>
+              <li><a class="dropdown-item" href="#">Descargar CV</a></li>
+              <li><a class="dropdown-item" href="#">GitHub</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item pr-2  login"  *ngIf="this.deslogueado == true">
+            <a class="nav-link active" [routerLink]="['/login']"><img src="../assets/img/iniciar-sesion.png" alt="logoinicio"
+                style="height: 40px;"></a>
+          </li>
+          <li class="nav-item px-3 logout" *ngIf="this.deslogueado == false">
+            <a class="nav-link active" [routerLink]="['/home']" (click)="desloguear()">Logout</a>
+          </li>
+        </ul>
+  
+  </div>
+</nav>
+
+
+
+
+ <p  id="home"></p>
+<router-outlet></router-outlet>
+
+
+<!--Footer-->
+<footer class="bg-dark text-center text-white ">
+        
+  <!-- Copyright -->
+  <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="#">LucasFnn</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!--Footer-->
+
+
+
+
